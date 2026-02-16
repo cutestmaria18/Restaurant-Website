@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Ordering Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="hidden" id="special-form-div">
+      <div id="reservation-form">
+        <div id="header-and-close-for-form">
+          <h2>Reservation Form</h2>
+          <button id="close-reservation-form-btn">
+            <img src="assets/icons/close.png" alt="Close Reservation Form" />
+          </button>
+        </div>
+        <form id="reservation-form-form">
+          <fieldset>
+            <legend>Reservation Details</legend>
+            <label for="full-name">
+              Full Name:
+              <input
+                id="full-name"
+                name="fullName"
+                type="text"
+                placeholder="John Doe"
+                required
+              />
+            </label>
+            <label for="phone-number">
+              Phone Number:
+              <input
+                id="phone-number"
+                name="phoneNumber"
+                type="tel"
+                placeholder="+380 XX XXX XX XX"
+                required
+              />
+            </label>
+            <label for="date">
+              Date:
+              <input id="date" name="date" type="date" required />
+            </label>
+            <label for="time">
+              Time:
+              <input id="time" name="time" type="time" required />
+            </label>
+            <label for="number-of-guests">
+              Number of Guests:
+              <input
+                id="number-of-guests"
+                name="numberOfGuests"
+                type="number"
+                placeholder="1,2,3..."
+                required
+              />
+            </label>
+          </fieldset>
+          <fieldset id="order-summary">
+            <legend>Order Summary</legend>
+            <div id="form-orders"></div>
+            <hr />
+            <div id="form-orders-summary"></div>
+          </fieldset>
+          <fieldset id="special-requests">
+            <legend>Special Requests / Important Notes</legend>
+            <p>
+              Do you have special requests / important notes we need to know?
+            </p>
+            <textarea name="notes" placeholder="Write here..."></textarea>
+          </fieldset>
+          <p id="form-note">
+            Please note: A 30%
+            <span></span>
+            prepayment of the total order amount is required to confirm your
+            reservation. The remaining balance can be paid at the restaurant.
+          </p>
+          <div id="submit-form-div">
+            <button type="submit" id="submit-form-btn">
+              Confirm Reservation
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="head-div">
+      <img
+        id="website-logo-img"
+        src="assets/logos/website-logo.png"
+        alt="Website logo"
+      />
+      <div id="name-and-location-div">
+        <p id="name-p">PuzataHata</p>
+        <p id="location-p">
+          <img src="assets/icons/location.png" alt="Location icon" />
+          Kyiv, Ukraine
+        </p>
+      </div>
+      <button id="open-cart-btn">
+        <img src="assets/icons/shopping-cart.png" alt="Shopping Cart Icon" />
+        Cart
+        <span class="hidden" id="open-cart-btn-span"></span>
+      </button>
+    </div>
+    <div class="hidden" id="special-cart-div"></div>
+    <div class="hidden" id="shopping-cart">
+      <div id="header-and-close-for-cart">
+        <h3>Your Cart (0)</h3>
+        <button id="close-cart-btn">
+          <img src="assets/icons/close.png" alt="Closing Cart Button" />
+        </button>
+      </div>
+      <div id="orders"></div>
+      <div class="hidden" id="summary">
+        <div class="reservation-div">
+          <p>Subtotal:</p>
+          <span id="subtotal-span"></span>
+        </div>
+        <div class="reservation-div">
+          <p>Tax:</p>
+          <span id="tax-span"></span>
+        </div>
+        <div class="reservation-div">
+          <p>Total:</p>
+          <span id="total-span"></span>
+        </div>
+        <div id="reservation-btn-div">
+          <button id="reservation-btn">Start Reservation</button>
+        </div>
+      </div>
+    </div>
+    <header>
+      <div id="welcome-div">
+        <p id="welcome-p1">
+          Welcome to our website! Here you can view and order
+        </p>
+        <p id="welcome-p2">
+          the most delicious dishes of traditional Ukrainian cuisine!
+        </p>
+      </div>
+    </header>
+    <main>
+      <div id="filter-div">
+        <button class="filter-btn" id="all-filter-btn">All</button>
+        <button class="filter-btn" id="soups-filter-btn">Soups</button>
+        <button class="filter-btn" id="main-filter-btn">Main dishes</button>
+        <button class="filter-btn" id="appetizers-filter-btn">
+          Appetizers
+        </button>
+        <button class="filter-btn" id="bakery-filter-btn">Bakery</button>
+        <button class="filter-btn" id="desserts-filter-btn">Desserts</button>
+        <button class="filter-btn" id="drinks-filter-btn">Drinks</button>
+      </div>
+      <div id="dishes-div">
+        <div class="dish" id="soups">
+          <img src="assets/Dish Images/Borsch.jpg" alt="Borsch" />
+          <h3>Borsch</h3>
+          <p>
+            A traditional Ukrainian beetroot soup cooked with meat, cabbage, and
+            vegetables, served hot and rich in flavor.
+          </p>
+          <div>
+            <span>$8.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="main">
+          <img
+            src="assets/Dish Images/Kiev-style-cutlet.jpg"
+            alt="Kyiv—style Cutlet"
+          />
+          <h3>Kyiv—style Cutlet</h3>
+          <p>
+            A famous Ukrainian dish made from chicken fillet with a tender
+            butter filling, crispy on the outside and juicy inside.
+          </p>
+          <div>
+            <span>$12.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="bakery">
+          <img src="assets/Dish Images/Potato-pies.jpg" alt="Potato Pies" />
+          <h3>Potato Pies</h3>
+          <p>
+            Soft baked pies filled with seasoned mashed potatoes, a classic
+            homemade comfort food.
+          </p>
+          <div>
+            <span>$6.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="appetizers">
+          <img
+            src="assets/Dish Images/Lard-with-garlic.jpg"
+            alt="Lard With Garlic"
+          />
+          <h3>Lard With Garlic</h3>
+          <p>
+            Cured pork fat served with garlic, a traditional Ukrainian appetizer
+            often enjoyed with bread.
+          </p>
+          <div>
+            <span>$7.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="main">
+          <img
+            src="assets/Dish Images/Dumplings-with-potatoes.jpg"
+            alt="Dumplings With Potatoes"
+          />
+          <h3>Dumplings With Potatoes</h3>
+          <p>
+            Boiled dough dumplings stuffed with creamy mashed potatoes, simple
+            yet very satisfying.
+          </p>
+          <div>
+            <span>$9.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="soups">
+          <img src="assets/Dish Images/Cabbage-soup.jpg" alt="Cabbage Soup" />
+          <h3>Cabbage Soup</h3>
+          <p>
+            A hearty cabbage-based soup prepared with vegetables and sometimes
+            meat, warm and nourishing.
+          </p>
+          <div>
+            <span>$7.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="bakery">
+          <img src="assets/Dish Images/Palyanytsya.jpg" alt="Palyanytsya" />
+          <h3>Palyanytsya</h3>
+          <p>
+            Traditional Ukrainian bread with a crispy crust and soft interior, a
+            symbol of hospitality.
+          </p>
+          <div>
+            <span>$4.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="desserts">
+          <img
+            src="assets/Dish Images/Cheesecakes-with-sour-cream.jpg"
+            alt="Cheesecakes with sour cream"
+          />
+          <h3>Cheesecakes with sour cream</h3>
+          <p>
+            Pan-fried cottage cheese pancakes served with sour cream, lightly
+            sweet and very tender.
+          </p>
+          <div>
+            <span>$5.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="appetizers">
+          <img
+            src="assets/Dish Images/Herring-with-onion.jpg"
+            alt="Herring With Onion"
+          />
+          <h3>Herring With Onion</h3>
+          <p>
+            Salted herring slices served with fresh onions, a popular cold
+            appetizer.
+          </p>
+          <div>
+            <span>$8.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="desserts">
+          <img src="assets/Dish Images/Honey-cake.jpg" alt="Honey Cake" />
+          <h3>Honey Cake</h3>
+          <p>
+            A layered honey-infused cake with soft cream filling, sweet and
+            aromatic.
+          </p>
+          <div>
+            <span>$6.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="soups">
+          <img src="assets/Dish Images/Fish Yushka.jpg" alt="Fish Yushka" />
+          <h3>Fish Yushka</h3>
+          <p>A light fish soup made with fresh fish, herbs, and clear broth.</p>
+          <div>
+            <span>$9.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="drinks">
+          <img src="assets/Dish Images/Stewed-fruit.jpg" alt="Stewed fruit" />
+          <h3>Stewed fruit</h3>
+          <p>
+            A sweet drink made by simmering dried or fresh fruits, refreshing
+            and natural.
+          </p>
+          <div>
+            <span>$3.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="bakery">
+          <img src="assets/Dish Images/Garlic-donuts.jpg" alt="Garlic Donuts" />
+          <h3>Garlic Donuts</h3>
+          <p>
+            Soft baked buns flavored with garlic, often served with soups and
+            main dishes.
+          </p>
+          <div>
+            <span>$4.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="desserts">
+          <img
+            src="assets/Dish Images/Poppy-seed-pies.jpg"
+            alt="Poppy Seed Pies"
+          />
+          <h3>Poppy Seed Pies</h3>
+          <p>
+            Sweet baked pies filled with poppy seed filling, rich and fragrant.
+          </p>
+          <div>
+            <span>$5.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="appetizers">
+          <img
+            src="assets/Dish Images/Homemade-pickles.jpg"
+            alt="Homemade pickles"
+          />
+          <h3>Homemade pickles</h3>
+          <p>Assorted vegetables preserved in brine, crunchy and flavorful.</p>
+          <div>
+            <span>$3.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="drinks">
+          <img src="assets/Dish Images/Kvass.jpg" alt="Kvass" />
+          <h3>Kvass</h3>
+          <p>
+            A traditional fermented bread drink with a mildly sweet and sour
+            taste.
+          </p>
+          <div>
+            <span>$3.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="drinks">
+          <img src="assets/Dish Images/Compote.jpg" alt="Compote" />
+          <h3>Compote</h3>
+          <p>
+            A homemade fruit drink made by boiling fruits with sugar, light and
+            refreshing.
+          </p>
+          <div>
+            <span>3.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="soups">
+          <img src="assets/Dish Images/Rice-soup.jpg" alt="Rice Soup" />
+          <h3>Rice Soup</h3>
+          <p>
+            A simple soup made with rice, vegetables, and clear broth, easy and
+            comforting.
+          </p>
+          <div>
+            <span>$8.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="main">
+          <img src="assets/Dish Images/Cabbage-rolls.jpg" alt="Cabbage Rolls" />
+          <h3>Cabbage Rolls</h3>
+          <p>
+            Cabbage leaves stuffed with meat and rice, slowly cooked until
+            tender.
+          </p>
+          <div>
+            <span>$10.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="appetizers">
+          <img src="assets/Dish Images/Aspic.jpg" alt="Aspic" />
+          <h3>Aspic</h3>
+          <p>A cold savory dish made from meat in a clear, jelly-like broth.</p>
+          <div>
+            <span>$8.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="drinks">
+          <img src="assets/Dish Images/Herbal-tea.jpg" alt="Herbal Tea" />
+          <h3>Herbal Tea</h3>
+          <p>
+            A warm drink brewed from dried herbs and flowers, soothing and
+            aromatic.
+          </p>
+          <div>
+            <span>$2.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="desserts">
+          <img
+            src="assets/Dish Images/Dumplings-with-cherries.jpg"
+            alt="Dumplings With Cherries"
+          />
+          <h3>Dumplings With Cherries</h3>
+          <p>
+            Sweet dumplings filled with juicy cherries, served warm and lightly
+            sugared.
+          </p>
+          <div>
+            <span>$7.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="main">
+          <img
+            src="assets/Dish Images/Potato-pancakes.jpg"
+            alt="Potato Pancakes"
+          />
+          <h3>Potato Pancakes</h3>
+          <p>
+            Grated potato pancakes fried until golden and crispy on the outside.
+          </p>
+          <div>
+            <span>$8.50</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+        <div class="dish" id="bakery">
+          <img src="assets/Dish Images/Cakes.jpg" alt="Cakes" />
+          <h3>Cakes</h3>
+          <p>
+            Soft baked cakes with sweet fillings or cream, perfect for dessert
+            or tea time.
+          </p>
+          <div>
+            <span>$5.00</span>
+            <button id="add-btn">Add +</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
