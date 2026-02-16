@@ -3,6 +3,17 @@
 This project is a responsive landing page for a restaurant website.
 It focuses on clean UI, simple user interactions, and basic frontend logic.
 
+## Features
+- Interactive cart
+- Reservation form
+- Responsive design
+- Success message logic
+
+Built with:
+- HTML
+- CSS
+- JavaScript
+
 ## Design & Credits
 
 The UI design is based on a free design from Figma Community:
